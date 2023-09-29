@@ -165,9 +165,6 @@ client.on(Events.InteractionCreate, async interaction => {
     
 })
 
-//
-
-
 
 
 // Meatlocker Channel ID = 1047425498734678097
