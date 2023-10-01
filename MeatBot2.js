@@ -67,10 +67,6 @@ client.on("messageCreate", message => { // When lockered person sends msg in Mea
             //console.log(MeatPunRNG) // Debug line
             message.reply(MeatImages[MeatImgRNG])
             message.reply(MeatPuns[MeatPunRNG])
-            
-            /// LEGACY FEATURE, NO LONGER USED ///     // DM's person who sent msg in locker a "you are retarded" gif and funny msg
-            //message.channel.type === ('dm') + message.author.send("get meated idiote!!!!!!!!!") // I'm hilarious
-            //message.channel.type === ('dm') + message.author.send("https://media.discordapp.net/attachments/856331963157970964/1112877314267676672/badwordhx6ktwysn81.gif")
         }
     }
 })
@@ -102,20 +98,6 @@ client.on("guildMemberRemove", member => { // Detects a member leaving the serve
     const GenPubChannel = member.guild.channels.cache.get("1136582618008277092")
     GenPubChannel.send("<@" + MemberID + "> left the server. Probably a good decision tbh.")
 })
-
-/////////////////////////////////
-///  ADD MEMBER ROLE MODULE   ///        /// LEGACY MODULE, NO LONGER USED ///
-/////////////////////////////////
-
-//client.on("guildMemberAdd", member => { // Adds Member role to new users after 5 minutes
-//    const MemberRole = member.guild.roles.cache.get("849230824863170571")
-//    setTimeout(() => {
-//        member.roles.add(MemberRole)
-//        const ReportChannel = member.guild.channels.cache.get("947646342191271966")
-//        const MemberID = member.user.id
-//        ReportChannel.send("<@" + MemberID + "> has been given the Member role.")
-//    }, "300000")
-//})
 
 /////////////////////////////////
 ///         COMMANDS          ///
@@ -166,9 +148,3 @@ client.on(Events.InteractionCreate, async interaction => {
 })
 
 
-
-// Meatlocker Channel ID = 1047425498734678097
-// Meatlocker Role ID = 876619639323525190
-// Automod Channel ID = 947646342191271966
-
-// Test Channel ID = 1028474477333459025
