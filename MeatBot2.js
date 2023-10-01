@@ -138,7 +138,7 @@ for (const file of commandFiles) {
 
 client.on(Events.InteractionCreate, interaction => {
     if (!interaction.isChatInputCommand()) return;
-    console.log(interaction);
+    console.log("Command used");
 })
 
 client.on(Events.InteractionCreate, async interaction => {
