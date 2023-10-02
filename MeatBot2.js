@@ -8,7 +8,7 @@ const client = new Client({
         GatewayIntentBits.GuildMessages,
         GatewayIntentBits.MessageContent,
         GatewayIntentBits.GuildMembers,
-    ],
+    ]
 });
 
 // Login Process
@@ -17,14 +17,14 @@ dotenv.config();
 client.login(process.env.DISCORD_TOKEN);
 
 client.on("ready", () => {
-    console.log("Bot Is Running")
+    console.log("Bot Is Running");
 })
 
 client.once('ready', () => {
     client.user.setStatus('dnd'),
     client.user.setPresence({
         activities: [{name: "meatmeatmeatmeatmeatmeatmeatmeatmeatmeatmeatmeatmeat", type: ActivityType.Playing}]
-    })
+    });
 });
 
 
@@ -61,42 +61,42 @@ const MeatPuns = []; // Array of shitty ChatGPT meat puns from Camina
 client.on("messageCreate", message => { // When lockered person sends msg in Meatlocker, will send a meat image and meat pun into the locker, reply @'ing them
     if(message.channel.id === "1047425498734678097"){
         if(message.member.roles.cache.has("876619639323525190")){
-            var MeatImgRNG = Math.floor(Math.random() * 12)
-            var MeatPunRNG = Math.floor(Math.random() * 7)
+            var MeatImgRNG = Math.floor(Math.random() * 12);
+            var MeatPunRNG = Math.floor(Math.random() * 7);
             //console.log(MeatImgRNG) // Debug line
             //console.log(MeatPunRNG) // Debug line
-            message.reply(MeatImages[MeatImgRNG])
-            message.reply(MeatPuns[MeatPunRNG])
+            message.reply(MeatImages[MeatImgRNG]);
+            message.reply(MeatPuns[MeatPunRNG]);
         }
     }
-})
+});
 
 /////////////////////////////////
 ///JOIN / LEAVE LOGGING MODULE///
 /////////////////////////////////
 
 client.on("guildMemberAdd", member => { // Detects a member joining the server and reports it in the Moderator section // UPDATE // Also adds the member role
-    const ReportChannel = member.guild.channels.cache.get("947646342191271966")
+    const ReportChannel = member.guild.channels.cache.get("947646342191271966");
     const MemberUsername = member.user.username
     const MemberID = member.user.id
-    const MemberRole = member.guild.roles.cache.get("849230824863170571")
-    ReportChannel.send("<@" + MemberID + "> joined the server. Username is " + MemberUsername)
-    member.roles.add(MemberRole)
+    const MemberRole = member.guild.roles.cache.get("849230824863170571");
+    ReportChannel.send("<@" + MemberID + "> joined the server. Username is " + MemberUsername);
+    member.roles.add(MemberRole);
 
     // Sends a funi welcome message to #general_public
-    const GenPubChannel = member.guild.channels.cache.get("1136582618008277092")
-    GenPubChannel.send("Welcome to the Aryx Madhouse, <@" + MemberID + ">. Good luck.")
+    const GenPubChannel = member.guild.channels.cache.get("1136582618008277092");
+    GenPubChannel.send("Welcome to the Aryx Madhouse, <@" + MemberID + ">. Good luck.");
 })
 
 client.on("guildMemberRemove", member => { // Detects a member leaving the server and reports it in the Moderator section
-    const ReportChannel = member.guild.channels.cache.get("947646342191271966")
+    const ReportChannel = member.guild.channels.cache.get("947646342191271966");
     const MemberUsername = member.user.username
     const MemberID = member.user.id
-    ReportChannel.send("<@" + MemberID + "> left the server. Username is " + MemberUsername)
+    ReportChannel.send("<@" + MemberID + "> left the server. Username is " + MemberUsername);
 
     // Sends a funi "member left" message to #general_public
-    const GenPubChannel = member.guild.channels.cache.get("1136582618008277092")
-    GenPubChannel.send("<@" + MemberID + "> left the server. Probably a good decision tbh.")
+    const GenPubChannel = member.guild.channels.cache.get("1136582618008277092");
+    GenPubChannel.send("<@" + MemberID + "> left the server. Probably a good decision tbh.");
 })
 
 /////////////////////////////////
@@ -114,7 +114,7 @@ for (const file of commandFiles) {
     if ('data' in command && 'execute' in command) {
         client.commands.set(command.data.name, command);
     } else {
-        console.log(` // WARNING // The command at ${filepath} is missing a required "data" or "execute" property.`)
+        console.log(` // WARNING // The command at ${filepath} is missing a required "data" or "execute" property.`);
     }
 }
 
@@ -145,6 +145,4 @@ client.on(Events.InteractionCreate, async interaction => {
     }
 
     
-})
-
-
+});
