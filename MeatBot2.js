@@ -86,6 +86,10 @@ client.on("guildMemberAdd", member => { // Detects a member joining the server a
     // Sends a funi welcome message to #general_public
     const GenPubChannel = member.guild.channels.cache.get("1136582618008277092");
     GenPubChannel.send("Welcome to the Aryx Madhouse, <@" + MemberID + ">. Good luck.");
+
+    if (member.user.id == "96680642787446784") { // Informs the server to bully Captain Jack if he joins the discord server :wholesome:
+        GenPubChannel.send("Captain Jack just joined the server lmao, crease his jordans.");
+    };
 })
 
 client.on("guildMemberRemove", member => { // Detects a member leaving the server and reports it in the Moderator section
@@ -120,7 +124,7 @@ for (const file of commandFiles) {
 
 client.on(Events.InteractionCreate, interaction => {
     if (!interaction.isChatInputCommand()) return;
-    console.log("Command used");
+    console.log(`Command used: (${interaction.commandName})`);
 })
 
 client.on(Events.InteractionCreate, async interaction => {
