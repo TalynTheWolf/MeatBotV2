@@ -83,9 +83,20 @@ client.on("guildMemberAdd", member => { // Detects a member joining the server a
     ReportChannel.send("<@" + MemberID + "> joined the server. Username is " + MemberUsername);
     member.roles.add(MemberRole);
 
-    // Sends a funi welcome message to #general_public
+    // Sends a random funi welcome message to #general_public
     const GenPubChannel = member.guild.channels.cache.get("1136582618008277092");
-    GenPubChannel.send("Welcome to the Aryx Madhouse, <@" + MemberID + ">. Good luck.");
+    const JoinMessages = [];
+        JoinMessages[0]= "Welcome to the Aryx Madhouse, <@" + MemberID + ">. Good luck."
+        JoinMessages[1]= "<@" + MemberID + "> joined the Madhouse, L"
+        JoinMessages[2]= "Welcome to the Squamhouse, <@" + MemberID + ">, we've got fun and games..."
+        JoinMessages[3]= "<@" + MemberID + "> joined the fray. Ignore ikkle, we all do."
+        JoinMessages[4]= "Welcome to the Talyn Modhouse, citizen <@" + MemberID + ">, sign up for the Slugga role today!"
+        JoinMessages[5]= "<@" + MemberID + "> has joined the cesspit. Pay homage to <@295950633184526337>, the Lord of Cheese."
+        JoinMessages[6]= "Welcome to the Aryx Modhouse, <@" + MemberID + ">. (Hint: Use the /alucard command!!!!!)"
+
+    var JoinMessageRNG = Math.floor(Math.random() * 6);
+
+    GenPubChannel.send(JoinMessages[JoinMessageRNG]);
 
     if (member.user.id == "96680642787446784") { // Informs the server to bully Captain Jack if he joins the discord server :wholesome:
         GenPubChannel.send("Captain Jack just joined the server lmao, crease his jordans.");
@@ -98,9 +109,22 @@ client.on("guildMemberRemove", member => { // Detects a member leaving the serve
     const MemberID = member.user.id
     ReportChannel.send("<@" + MemberID + "> left the server. Username is " + MemberUsername);
 
-    // Sends a funi "member left" message to #general_public
+    // Sends a random funi "member left" message to #general_public
     const GenPubChannel = member.guild.channels.cache.get("1136582618008277092");
-    GenPubChannel.send("<@" + MemberID + "> left the server. Probably a good decision tbh.");
+    const LeaveMessages = [];
+        LeaveMessages[0]= "<@" + MemberID + "> left the server. Probably a good decision tbh."
+        LeaveMessages[1]= "<@" + MemberID + "> couldn't handle the Modhouse Style. Later slugga..."
+        LeaveMessages[2]= "<@" + MemberID + "> was NOT built for these fields."
+        LeaveMessages[3]= "<@" + MemberID + "> left the Modhouse. They probably went to Captain Jacks..."
+        LeaveMessages[4]= "<@" + MemberID + "> left the Modhouse. Laugh at this user."
+        LeaveMessages[5]= "<@" + MemberID + "> Exploded."
+        LeaveMessages[6]= "<@" + MemberID + "> was obliterated by Mitthrawn (collateral damage)."
+        LeaveMessages[7]= "<@" + MemberID + "> was vaporised by <@295950633184526337> for not being a Cheddar Connoisseur"
+        LeaveMessages[8]= "<@" + MemberID + "> was exploded by <@565261827789815808> for using Cilit Bang instead."
+
+    var LeaveMessageRNG = Math.floor(Math.random() * 8);
+    
+    GenPubChannel.send(LeaveMessages[LeaveMessageRNG]);
 })
 
 /////////////////////////////////
