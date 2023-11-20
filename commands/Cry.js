@@ -4,6 +4,6 @@ module.exports = {
         .setName('cry')
         .setDescription('Sends "Cry About It Platypus" into the chat, because its funny'),
     async execute(interaction) {
-        await interaction.reply("https://tenor.com/en-GB/view/cry-about-it-cry-about-it-beaver-gif-20935280");
+        await interaction.reply("https://media.tenor.com/xAzUYNGEGmQAAAAC/cry-about-it-cry.gif");
     }
 }
