@@ -80,19 +80,19 @@ client.on("guildMemberAdd", member => { // Detects a member joining the server a
     const MemberUsername = member.user.username
     const MemberID = member.user.id
     const MemberRole = member.guild.roles.cache.get("849230824863170571");
-    ReportChannel.send("<@" + MemberID + "> joined the server. Username is " + MemberUsername);
+    ReportChannel.send(":green_circle: <@" + MemberID + "> joined the server. Username is " + MemberUsername);
     member.roles.add(MemberRole);
 
     // Sends a random funi welcome message to #general_public
     const GenPubChannel = member.guild.channels.cache.get("1136582618008277092");
     const JoinMessages = [];
-        JoinMessages[0]= "Welcome to the Aryx Madhouse, <@" + MemberID + ">. Good luck."
-        JoinMessages[1]= "<@" + MemberID + "> joined the Madhouse, L"
-        JoinMessages[2]= "Welcome to the Squamhouse, <@" + MemberID + ">, we've got fun and games..."
-        JoinMessages[3]= "<@" + MemberID + "> joined the fray. Ignore ikkle, we all do."
-        JoinMessages[4]= "Welcome to the Talyn Modhouse, citizen <@" + MemberID + ">, sign up for the Slugga role today!"
-        JoinMessages[5]= "<@" + MemberID + "> has joined the cesspit. Pay homage to <@295950633184526337>, the Lord of Cheese."
-        JoinMessages[6]= "Welcome to the Aryx Modhouse, <@" + MemberID + ">. (Hint: Use the /alucard command!!!!!)"
+        JoinMessages[0]= ":green_circle: Welcome to the Aryx Madhouse, <@" + MemberID + ">. Good luck."
+        JoinMessages[1]= ":green_circle: <@" + MemberID + "> joined the Madhouse, L"
+        JoinMessages[2]= ":green_circle: Welcome to the Squamhouse, <@" + MemberID + ">, we've got fun and games..."
+        JoinMessages[3]= ":green_circle: <@" + MemberID + "> joined the fray. Ignore ikkle, we all do."
+        JoinMessages[4]= ":green_circle: Welcome to the Talyn Modhouse, citizen <@" + MemberID + ">, sign up for the Slugga role today!"
+        JoinMessages[5]= ":green_circle: <@" + MemberID + "> has joined the cesspit. Pay homage to <@295950633184526337>, the Lord of Cheese."
+        JoinMessages[6]= ":green_circle: Welcome to the Aryx Modhouse, <@" + MemberID + ">. (Hint: Use the /alucard command!!!!!)"
 
     var JoinMessageRNG = Math.floor(Math.random() * 6);
 
@@ -107,20 +107,21 @@ client.on("guildMemberRemove", member => { // Detects a member leaving the serve
     const ReportChannel = member.guild.channels.cache.get("947646342191271966");
     const MemberUsername = member.user.username
     const MemberID = member.user.id
-    ReportChannel.send("<@" + MemberID + "> left the server. Username is " + MemberUsername);
+    ReportChannel.send(":no_entry: <@" + MemberID + "> left the server. Username is " + MemberUsername);
 
     // Sends a random funi "member left" message to #general_public
     const GenPubChannel = member.guild.channels.cache.get("1136582618008277092");
     const LeaveMessages = [];
-        LeaveMessages[0]= "<@" + MemberID + "> left the server. Probably a good decision tbh."
-        LeaveMessages[1]= "<@" + MemberID + "> couldn't handle the Modhouse Style. Later slugga..."
-        LeaveMessages[2]= "<@" + MemberID + "> was NOT built for these fields."
-        LeaveMessages[3]= "<@" + MemberID + "> left the Modhouse. They probably went to Captain Jacks..."
-        LeaveMessages[4]= "<@" + MemberID + "> left the Modhouse. Laugh at this user."
-        LeaveMessages[5]= "<@" + MemberID + "> Exploded."
-        LeaveMessages[6]= "<@" + MemberID + "> was obliterated by Mitthrawn (collateral damage)."
-        LeaveMessages[7]= "<@" + MemberID + "> was vaporised by <@295950633184526337> for not being a Cheddar Connoisseur"
-        LeaveMessages[8]= "<@" + MemberID + "> was exploded by <@565261827789815808> for using Cilit Bang instead."
+        LeaveMessages[0]= ":no_entry: <@" + MemberID + "> left the server. Probably a good decision tbh."
+        LeaveMessages[1]= ":no_entry: <@" + MemberID + "> couldn't handle the Modhouse Style. Later slugga..."
+        LeaveMessages[2]= ":no_entry: <@" + MemberID + "> was NOT built for these fields."
+        LeaveMessages[3]= ":no_entry: <@" + MemberID + "> left the Modhouse. They probably went to Captain Jacks..."
+        LeaveMessages[4]= ":no_entry: <@" + MemberID + "> left the Modhouse. Laugh at this user."
+        LeaveMessages[5]= ":no_entry: <@" + MemberID + "> Exploded."
+        LeaveMessages[6]= ":no_entry: <@" + MemberID + "> was obliterated by Mitthrawn (collateral damage)."
+        LeaveMessages[7]= ":no_entry: <@" + MemberID + "> was vaporised by <@295950633184526337> for not being a Cheddar Connoisseur"
+        LeaveMessages[8]= ":no_entry: <@" + MemberID + "> was exploded by <@565261827789815808> for using Cilit Bang instead."
+        LeaveMessages[9]= ":no_entry: ذهب الله لأنه <@" + MemberID +">."
 
     var LeaveMessageRNG = Math.floor(Math.random() * 8);
     
