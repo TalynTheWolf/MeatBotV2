@@ -93,8 +93,12 @@ client.on("guildMemberAdd", member => { // Detects a member joining the server a
         JoinMessages[4]= ":green_circle: Welcome to the Talyn Modhouse, citizen <@" + MemberID + ">, sign up for the Slugga role today!"
         JoinMessages[5]= ":green_circle: <@" + MemberID + "> has joined the cesspit. Pay homage to <@295950633184526337>, the Lord of Cheese."
         JoinMessages[6]= ":green_circle: Welcome to the Aryx Modhouse, <@" + MemberID + ">. (Hint: Use the /alucard command!!!!!)"
+        JoinMessages[7]= ":green_circle: Hello <@" + MemberID + ">, welcome to the worst server on Discord."
+        JoinMessages[8]= ":green_circle: Hello Comrade <@" + MemberID + ">, welcome to Best Korea."
+        JoinMessages[9]= ":green_circle: Look at this mf <@" + MemberID + ">, goofy ahh joined this server of all servers..."
+        JoinMessages[10]= ":green_circle: Welcome to the modhouse, <@" + MemberID + ">. Please note, it is mandatory to send the staff team pizzas upon being doxxed."
 
-    var JoinMessageRNG = Math.floor(Math.random() * 6);
+    var JoinMessageRNG = Math.floor(Math.random() * 10);
 
     GenPubChannel.send(JoinMessages[JoinMessageRNG]);
 
@@ -122,8 +126,9 @@ client.on("guildMemberRemove", member => { // Detects a member leaving the serve
         LeaveMessages[7]= ":no_entry: <@" + MemberID + "> was vaporised by <@295950633184526337> for not being a Cheddar Connoisseur"
         LeaveMessages[8]= ":no_entry: <@" + MemberID + "> was exploded by <@565261827789815808> for using Cilit Bang instead."
         LeaveMessages[9]= ":no_entry: ذهب الله لأنه <@" + MemberID +">."
+        LeaveMessages[10]= ":no_entry: <@" + MemberID + "> had their Jordans creased."
 
-    var LeaveMessageRNG = Math.floor(Math.random() * 8);
+    var LeaveMessageRNG = Math.floor(Math.random() * 10);
     
     GenPubChannel.send(LeaveMessages[LeaveMessageRNG]);
 })
