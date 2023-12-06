@@ -1,5 +1,4 @@
 node_modules
-package-lock.json
-package.json
 .env
 modhouseslots.js
+deploy-commands.js
