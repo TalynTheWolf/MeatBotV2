@@ -71,6 +71,12 @@ client.on("messageCreate", message => { // When lockered person sends msg in Mea
     }
 });
 
+client.on("messageCreate", message => {
+    if (message.mentions.has(client.user)){
+        message.reply("Don't fucking ping me, creature.")
+    }
+})
+
 /////////////////////////////////
 ///JOIN / LEAVE LOGGING MODULE///
 /////////////////////////////////
