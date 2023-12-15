@@ -71,10 +71,10 @@ client.on("messageCreate", message => { // When lockered person sends msg in Mea
     }
 });
 
-client.on("messageCreate", message => {
+client.on("messageCreate", message => { // Responds to the bot being pinged with a generic insult message.
     if (message.mentions.has(client.user)){
-        message.reply("Don't fucking ping me, creature.")
-    }
+        message.reply("Don't fucking ping me, creature.") // Do an array for this, Future Talyn. The funny people in general just keep pinging it.
+    } // Also, add a specific one for Alucard, that fucker still thinks he's funny.
 })
 
 /////////////////////////////////
