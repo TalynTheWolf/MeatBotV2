@@ -8,6 +8,7 @@ const client = new Client({
         GatewayIntentBits.GuildMessages,
         GatewayIntentBits.MessageContent,
         GatewayIntentBits.GuildMembers,
+        GatewayIntentBits.GuildModeration,
     ]
 });
 
@@ -30,7 +31,7 @@ client.once('ready', () => {
 
 
 /////////////////////////////////
-///           MEAT            ///
+///           MEAT            /// // Responsible for bullying any users who have been put in the servers time-out text channel.
 /////////////////////////////////
 
 const MeatImages = []; // Array of funny meat images
@@ -71,14 +72,38 @@ client.on("messageCreate", message => { // When lockered person sends msg in Mea
     }
 });
 
-client.on("messageCreate", message => { // Responds to the bot being pinged with a generic insult message.
+/////////////////////////////////
+///    PINGRESPONSE MODULE    /// // Responsible for bullying any users that ping the bot. Because why the fuck not.
+/////////////////////////////////
+
+const PingResponses = []; // Array of responses for if the bot is pinged.
+    PingResponses[0]= "Don't fucking ping me, creature."
+    PingResponses[1]= "You should've died at birth."
+    PingResponses[2]= "Get a Job."
+    PingResponses[3]= "You will never feel the Holy Light of Allah upon your soul."
+    PingResponses[4]= "https://media.tenor.com/C8MpzwDxl40AAAAM/ltg-low-tier-god.gif"
+    PingResponses[5]= "https://media1.tenor.com/m/HW1HwFzU3HEAAAAd/kill-people.gif"
+
+client.on("messageCreate", message => { // When bot is pinged, check if user has lobotomized role, and send specific response if true. Else will send random insult response and have a chance to timeout.
     if (message.mentions.has(client.user)){
-        message.reply("Don't fucking ping me, creature.") // Do an array for this, Future Talyn. The funny people in general just keep pinging it.
-    } // Also, add a specific one for Alucard, that fucker still thinks he's funny.
+        if (message.member.roles.cache.has("1003685931754209490")){
+            message.member.timeout(5 * 60 * 1000, 'Timed out for pinging the bot while lobotomized'); // People with Lobotomite role always get timed out.
+            message.reply("This Lobotomite got timed out lmao.");
+        } else {
+            var ResponseRNG = Math.floor(Math.random() * 5);
+            message.reply(PingResponses[ResponseRNG]);
+
+            var TimeoutChance = Math.floor(Math.random() * 4); // One in Five chance of being timed out per ping.
+            if (TimeoutChance == 2){
+                message.member.timeout(5 * 60 * 1000);
+                message.reply("Dumb egg got timed out.");
+            }
+        }
+    }
 })
 
 /////////////////////////////////
-///JOIN / LEAVE LOGGING MODULE///
+///JOIN / LEAVE LOGGING MODULE/// // Responsible for welcoming or saying goodbye to users who join/leave the server. Also logs joins/leaves in the admin channels.
 /////////////////////////////////
 
 client.on("guildMemberAdd", member => { // Detects a member joining the server and reports it in the Moderator section // UPDATE // Also adds the member role
@@ -86,23 +111,23 @@ client.on("guildMemberAdd", member => { // Detects a member joining the server a
     const MemberUsername = member.user.username
     const MemberID = member.user.id
     const MemberRole = member.guild.roles.cache.get("849230824863170571");
-    ReportChannel.send(":green_circle: <@" + MemberID + "> joined the server. Username is " + MemberUsername);
+    ReportChannel.send(":arrow_forward: <@" + MemberID + "> joined the server. Username is " + MemberUsername);
     member.roles.add(MemberRole);
 
     // Sends a random funi welcome message to #general_public
     const GenPubChannel = member.guild.channels.cache.get("1136582618008277092");
     const JoinMessages = [];
-        JoinMessages[0]= ":green_circle: Welcome to the Aryx Madhouse, <@" + MemberID + ">. Good luck."
-        JoinMessages[1]= ":green_circle: <@" + MemberID + "> joined the Madhouse, L"
-        JoinMessages[2]= ":green_circle: Welcome to the Squamhouse, <@" + MemberID + ">, we've got fun and games..."
-        JoinMessages[3]= ":green_circle: <@" + MemberID + "> joined the fray. Ignore ikkle, we all do."
-        JoinMessages[4]= ":green_circle: Welcome to the Talyn Modhouse, citizen <@" + MemberID + ">, sign up for the Slugga role today!"
-        JoinMessages[5]= ":green_circle: <@" + MemberID + "> has joined the cesspit. Pay homage to <@295950633184526337>, the Lord of Cheese."
-        JoinMessages[6]= ":green_circle: Welcome to the Aryx Modhouse, <@" + MemberID + ">. (Hint: Use the /alucard command!!!!!)"
-        JoinMessages[7]= ":green_circle: Hello <@" + MemberID + ">, welcome to the worst server on Discord."
-        JoinMessages[8]= ":green_circle: Hello Comrade <@" + MemberID + ">, welcome to Best Korea."
-        JoinMessages[9]= ":green_circle: Look at this mf <@" + MemberID + ">, goofy ahh joined this server of all servers..."
-        JoinMessages[10]= ":green_circle: Welcome to the modhouse, <@" + MemberID + ">. Please note, it is mandatory to send the staff team pizzas upon being doxxed."
+        JoinMessages[0]= ":arrow_forward: Welcome to the Aryx Madhouse, <@" + MemberID + ">. Good luck."
+        JoinMessages[1]= ":arrow_forward: <@" + MemberID + "> joined the Madhouse, L"
+        JoinMessages[2]= ":arrow_forward: Welcome to the Squamhouse, <@" + MemberID + ">, we've got fun and games..."
+        JoinMessages[3]= ":arrow_forward: <@" + MemberID + "> joined the fray. Ignore ikkle, we all do."
+        JoinMessages[4]= ":arrow_forward: Welcome to the Talyn Modhouse, citizen <@" + MemberID + ">, sign up for the Slugga role today!"
+        JoinMessages[5]= ":arrow_forward: <@" + MemberID + "> has joined the cesspit. Pay homage to <@295950633184526337>, the Lord of Cheese."
+        JoinMessages[6]= ":arrow_forward: Welcome to the Aryx Modhouse, <@" + MemberID + ">. (Hint: Use the /alucard command!!!!!)"
+        JoinMessages[7]= ":arrow_forward: Hello <@" + MemberID + ">, welcome to the worst server on Discord."
+        JoinMessages[8]= ":arrow_forward: Hello Comrade <@" + MemberID + ">, welcome to Best Korea."
+        JoinMessages[9]= ":arrow_forward: Look at this mf <@" + MemberID + ">, goofy ahh joined this server of all servers..."
+        JoinMessages[10]= ":arrow_forward: Welcome to the modhouse, <@" + MemberID + ">. Please note, it is mandatory to send the staff team pizzas upon being doxxed."
 
     var JoinMessageRNG = Math.floor(Math.random() * 10);
 
@@ -117,22 +142,22 @@ client.on("guildMemberRemove", member => { // Detects a member leaving the serve
     const ReportChannel = member.guild.channels.cache.get("947646342191271966");
     const MemberUsername = member.user.username
     const MemberID = member.user.id
-    ReportChannel.send(":no_entry: <@" + MemberID + "> left the server. Username is " + MemberUsername);
+    ReportChannel.send(":arrow_backward: <@" + MemberID + "> left the server. Username is " + MemberUsername);
 
     // Sends a random funi "member left" message to #general_public
     const GenPubChannel = member.guild.channels.cache.get("1136582618008277092");
     const LeaveMessages = [];
-        LeaveMessages[0]= ":no_entry: <@" + MemberID + "> left the server. Probably a good decision tbh."
-        LeaveMessages[1]= ":no_entry: <@" + MemberID + "> couldn't handle the Modhouse Style. Later slugga..."
-        LeaveMessages[2]= ":no_entry: <@" + MemberID + "> was NOT built for these fields."
-        LeaveMessages[3]= ":no_entry: <@" + MemberID + "> left the Modhouse. They probably went to Captain Jacks..."
-        LeaveMessages[4]= ":no_entry: <@" + MemberID + "> left the Modhouse. Laugh at this user."
-        LeaveMessages[5]= ":no_entry: <@" + MemberID + "> Exploded."
-        LeaveMessages[6]= ":no_entry: <@" + MemberID + "> was obliterated by Mitthrawn (collateral damage)."
-        LeaveMessages[7]= ":no_entry: <@" + MemberID + "> was vaporised by <@295950633184526337> for not being a Cheddar Connoisseur"
-        LeaveMessages[8]= ":no_entry: <@" + MemberID + "> was exploded by <@565261827789815808> for using Cilit Bang instead."
-        LeaveMessages[9]= ":no_entry: ذهب الله لأنه <@" + MemberID +">."
-        LeaveMessages[10]= ":no_entry: <@" + MemberID + "> had their Jordans creased."
+        LeaveMessages[0]= ":arrow_backward: <@" + MemberID + "> left the server. Probably a good decision tbh."
+        LeaveMessages[1]= ":arrow_backward: <@" + MemberID + "> couldn't handle the Modhouse Style. Later slugga..."
+        LeaveMessages[2]= ":arrow_backward: <@" + MemberID + "> was NOT built for these fields."
+        LeaveMessages[3]= ":arrow_backward: <@" + MemberID + "> left the Modhouse. They probably went to Captain Jacks..."
+        LeaveMessages[4]= ":arrow_backward: <@" + MemberID + "> left the Modhouse. Laugh at this user."
+        LeaveMessages[5]= ":arrow_backward: <@" + MemberID + "> Exploded."
+        LeaveMessages[6]= ":arrow_backward: <@" + MemberID + "> was obliterated by Mitthrawn (collateral damage)."
+        LeaveMessages[7]= ":arrow_backward: <@" + MemberID + "> was vaporised by <@295950633184526337> for not being a Cheddar Connoisseur"
+        LeaveMessages[8]= ":arrow_backward: <@" + MemberID + "> was exploded by <@565261827789815808> for using Cilit Bang instead."
+        LeaveMessages[9]= ":arrow_backward: ذهب الله لأنه <@" + MemberID +">."
+        LeaveMessages[10]= ":arrow_backward: <@" + MemberID + "> had their Jordans creased."
 
     var LeaveMessageRNG = Math.floor(Math.random() * 10);
     
@@ -140,7 +165,7 @@ client.on("guildMemberRemove", member => { // Detects a member leaving the serve
 })
 
 /////////////////////////////////
-///         COMMANDS          ///
+///         COMMANDS          /// // Code to enable commands in the server.
 /////////////////////////////////
 
 client.commands = new Collection();
