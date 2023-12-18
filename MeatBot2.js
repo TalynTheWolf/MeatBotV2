@@ -86,24 +86,34 @@ const PingResponses = []; // Array of responses for if the bot is pinged.
     PingResponses[6]= "Fox 10. Retard seeking missile deployed."
     PingResponses[7]= "By Allah, behave yourself or I will give you a taste of my shoe (sent to the meatlocker)."
     PingResponses[8]= "I swear on Allah if you keep pinging me, I'll find and sic Agarthasnack on you."
+    PingResponses[9]= "Acquire Employment Immediately!!!!!"
+    PingResponses[10]= "You should've been swallowed rather than birthed..."
 
-client.on("messageCreate", message => { // When bot is pinged, check if user has lobotomized role, and send specific response if true. Else will send random insult response and have a chance to timeout.
-    if (message.mentions.has(client.user)){
-        if (message.member.roles.cache.has("1003685931754209490")){
-            message.member.timeout(5 * 60 * 1000, 'Timed out for pinging the bot while lobotomized'); // People with Lobotomite role always get timed out.
-            message.reply("This Lobotomite got timed out lmao.");
+client.on("messageCreate", message => { // When bot is pinged, send a randomised insult response in a reply ping.
+    if(message.mentions.has(client.user)){
+        if(message.member.roles.cache.has("838939641855344650")){ // Bot will ignore pings from All the staff roles (This code is absolutely retarded but I don't care)
+            return;
+        }else if(message.member.roles.cache.has("1110664193666977804")){
+            return;
+        }else if(message.member.roles.cache.has("904794045749002260")){
+            return;
+        }else if(message.member.roles.cache.has("1131005068112560198")){
+            return;
+        }else if(message.member.roles.cache.has("1003685931754209490")){ // If a user pinging the bot has the "Lobotomized" role, the bot will automatically time them out lol
+            message.member.timeout(5 * 60 * 1000, 'Timed out for pinging the bot while Lobotomised.');
+            message.reply("This lobotomite got timed out lmao"); // Fuck them Lobotomites
         } else {
-            var ResponseRNG = Math.floor(Math.random() * 8);
+            var ResponseRNG = Math.floor(Math.random() * 10);
             message.reply(PingResponses[ResponseRNG]);
 
-            var TimeoutChance = Math.floor(Math.random() * 4); // One in Five chance of being timed out per ping.
-            if (TimeoutChance == 2){
-                message.member.timeout(5 * 60 * 1000);
-                message.reply("Dumb egg got timed out.");
+            var TimeoutChance = Math.floor(Math.random() * 4); // One in Five chance of normal users being timed out when they ping the bot.
+            if(TimeoutChance == 2){
+                message.member.timeout(5 * 60 * 1000, 'Timed out for pinging the bot.');
+                message.reply("Dumb egg got timed out lol");
             }
         }
     }
-}) // Add functionality to ignore the timeout function for moderators pinging the bot, because I'm like 50% sure it'll make the bot crash if it tries to timeout a mod lmao.
+})
 
 /////////////////////////////////
 ///JOIN / LEAVE LOGGING MODULE/// // Responsible for welcoming or saying goodbye to users who join/leave the server. Also logs joins/leaves in the admin channels.
