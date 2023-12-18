@@ -22,7 +22,7 @@ client.on("ready", () => {
 })
 
 client.once('ready', () => {
-    client.user.setStatus('dnd'),
+    client.user.setStatus('online'),
     client.user.setPresence({
         activities: [{name: "meatmeatmeatmeatmeatmeatmeatmeatmeatmeatmeatmeatmeat", type: ActivityType.Playing}]
     });
@@ -83,6 +83,9 @@ const PingResponses = []; // Array of responses for if the bot is pinged.
     PingResponses[3]= "You will never feel the Holy Light of Allah upon your soul."
     PingResponses[4]= "https://media.tenor.com/C8MpzwDxl40AAAAM/ltg-low-tier-god.gif"
     PingResponses[5]= "https://media1.tenor.com/m/HW1HwFzU3HEAAAAd/kill-people.gif"
+    PingResponses[6]= "Fox 10. Retard seeking missile deployed."
+    PingResponses[7]= "By Allah, behave yourself or I will give you a taste of my shoe (sent to the meatlocker)."
+    PingResponses[8]= "I swear on Allah if you keep pinging me, I'll find and sic Agarthasnack on you."
 
 client.on("messageCreate", message => { // When bot is pinged, check if user has lobotomized role, and send specific response if true. Else will send random insult response and have a chance to timeout.
     if (message.mentions.has(client.user)){
@@ -90,7 +93,7 @@ client.on("messageCreate", message => { // When bot is pinged, check if user has
             message.member.timeout(5 * 60 * 1000, 'Timed out for pinging the bot while lobotomized'); // People with Lobotomite role always get timed out.
             message.reply("This Lobotomite got timed out lmao.");
         } else {
-            var ResponseRNG = Math.floor(Math.random() * 5);
+            var ResponseRNG = Math.floor(Math.random() * 8);
             message.reply(PingResponses[ResponseRNG]);
 
             var TimeoutChance = Math.floor(Math.random() * 4); // One in Five chance of being timed out per ping.
@@ -100,7 +103,7 @@ client.on("messageCreate", message => { // When bot is pinged, check if user has
             }
         }
     }
-})
+}) // Add functionality to ignore the timeout function for moderators pinging the bot, because I'm like 50% sure it'll make the bot crash if it tries to timeout a mod lmao.
 
 /////////////////////////////////
 ///JOIN / LEAVE LOGGING MODULE/// // Responsible for welcoming or saying goodbye to users who join/leave the server. Also logs joins/leaves in the admin channels.
