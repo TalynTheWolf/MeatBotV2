@@ -140,9 +140,10 @@ client.on("guildMemberAdd", member => { // Detects a member joining the server a
         JoinMessages[7]= ":arrow_forward: Hello <@" + MemberID + ">, welcome to the worst server on Discord."
         JoinMessages[8]= ":arrow_forward: Hello Comrade <@" + MemberID + ">, welcome to Best Korea."
         JoinMessages[9]= ":arrow_forward: Look at this mf <@" + MemberID + ">, goofy ahh joined this server of all servers..."
-        JoinMessages[10]= ":arrow_forward: Welcome to the modhouse, <@" + MemberID + ">. Please note, it is mandatory to send the staff team pizzas upon being doxxed."
+        JoinMessages[10]= ":arrow_forward: Welcome to the modhouse, <@" + MemberID + ">. Please note, it is mandatory to send the staff team pizzas upon them being doxxed."
+        JoinMessages[11]= ":arrow_forward: Welcome to Aryxandria, <@" + MemberID + ">."
 
-    var JoinMessageRNG = Math.floor(Math.random() * 10);
+    var JoinMessageRNG = Math.floor(Math.random() * 11);
 
     GenPubChannel.send(JoinMessages[JoinMessageRNG]);
 
@@ -171,14 +172,15 @@ client.on("guildMemberRemove", member => { // Detects a member leaving the serve
         LeaveMessages[8]= ":arrow_backward: <@" + MemberID + "> was exploded by <@565261827789815808> for using Cilit Bang instead."
         LeaveMessages[9]= ":arrow_backward: ذهب الله لأنه <@" + MemberID +">."
         LeaveMessages[10]= ":arrow_backward: <@" + MemberID + "> had their Jordans creased."
+        LeaveMessages[11]= ":arrow_backward: <@" + MemberID + "> received a Papa John's Pizza."
 
-    var LeaveMessageRNG = Math.floor(Math.random() * 10);
+    var LeaveMessageRNG = Math.floor(Math.random() * 11);
     
     GenPubChannel.send(LeaveMessages[LeaveMessageRNG]);
 })
 
 /////////////////////////////////
-///         COMMANDS          /// // Code to enable commands in the server.
+///         COMMANDS          /// // Code to enable commands for the bot.
 /////////////////////////////////
 
 client.commands = new Collection();
