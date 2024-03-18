@@ -178,8 +178,9 @@ client.on("guildMemberRemove", member => { // Detects a member leaving the serve
         LeaveMessages[12]= ":arrow_backward: <@" + MemberID + "> was banished to the depths of Hell(Newcastle)."
         LeaveMessages[13]= ":arrow_backward: <@" + MemberID + "> called Talyn Irish."
         LeaveMessages[14]= ":arrow_backward: <@" + MemberID + "> smelled what The Rock was cooking."
+        LeaveMessages[15]= "arrow_backward: <@" + MemberID + "> was ran for their foams."
 
-    var LeaveMessageRNG = Math.floor(Math.random() * 14);
+    var LeaveMessageRNG = Math.floor(Math.random() * 15);
     
     GenPubChannel.send(LeaveMessages[LeaveMessageRNG]);
 })
