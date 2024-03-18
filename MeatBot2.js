@@ -24,7 +24,7 @@ client.on("ready", () => {
 client.once('ready', () => {
     client.user.setStatus('online'),
     client.user.setPresence({
-        activities: [{name: "meatmeatmeatmeatmeatmeatmeatmeatmeatmeatmeatmeatmeat", type: ActivityType.Playing}]
+        activities: [{name: "أنتم أيها الناس كلاب", type: ActivityType.Playing}] // Arabic for "You people are dogs"
     });
 });
 
@@ -135,23 +135,24 @@ client.on("guildMemberAdd", member => { // Detects a member joining the server a
         JoinMessages[2]= ":arrow_forward: Welcome to the Squamhouse, <@" + MemberID + ">, we've got fun and games..."
         //JoinMessages[3]= ":arrow_forward: <@" + MemberID + "> joined the fray. Ignore ikkle, we all do." // Removed since ikkle got banned lmao
         JoinMessages[3]= ":arrow_forward: <@" + MemberID + "> joined the fray."
-        JoinMessages[4]= ":arrow_forward: Welcome to the Talyn Modhouse, citizen <@" + MemberID + ">, sign up for the Slugga role today!"
-        JoinMessages[5]= ":arrow_forward: <@" + MemberID + "> has joined the cesspit. Pay homage to <@295950633184526337>, the Lord of Cheese."
+        JoinMessages[4]= ":arrow_forward: Welcome to the Talyn Modhouse, citizen <@" + MemberID + ">, earn your Slugga role today!"
+        JoinMessages[5]= ":arrow_forward: <@" + MemberID + "> has joined the cesspit. Pay homage to <@295950633184526337>, the Lord of Cheese." // Lord Thompson
         JoinMessages[6]= ":arrow_forward: Welcome to the Aryx Modhouse, <@" + MemberID + ">. (Hint: Use the /alucard command!!!!!)"
         JoinMessages[7]= ":arrow_forward: Hello <@" + MemberID + ">, welcome to the worst server on Discord."
         JoinMessages[8]= ":arrow_forward: Hello Comrade <@" + MemberID + ">, welcome to Best Korea."
         JoinMessages[9]= ":arrow_forward: Look at this mf <@" + MemberID + ">, goofy ahh joined this server of all servers..."
         JoinMessages[10]= ":arrow_forward: Welcome to the modhouse, <@" + MemberID + ">. Please note, it is mandatory to send the staff team pizzas upon them being doxxed."
         JoinMessages[11]= ":arrow_forward: Welcome to Aryxandria, <@" + MemberID + ">."
+        JoinMessages[12]= ":arrow_forward: <@" + MemberID + "> decided to upgrade from the KSH discord."
 
-    var JoinMessageRNG = Math.floor(Math.random() * 11);
+    var JoinMessageRNG = Math.floor(Math.random() * 12);
 
     GenPubChannel.send(JoinMessages[JoinMessageRNG]);
 
     if (member.user.id == "96680642787446784") { // Informs the server to bully Captain Jack if he joins the discord server :wholesome:
         GenPubChannel.send("Captain Jack just joined the server lmao, crease his jordans.");
     };
-})
+}) // UPDATE 18/3/24 he actually joined the server lmao
 
 client.on("guildMemberRemove", member => { // Detects a member leaving the server and reports it in the Moderator section
     const ReportChannel = member.guild.channels.cache.get("947646342191271966");
@@ -169,13 +170,16 @@ client.on("guildMemberRemove", member => { // Detects a member leaving the serve
         LeaveMessages[4]= ":arrow_backward: <@" + MemberID + "> left the Modhouse. Laugh at this user."
         LeaveMessages[5]= ":arrow_backward: <@" + MemberID + "> Exploded."
         LeaveMessages[6]= ":arrow_backward: <@" + MemberID + "> was obliterated by Mitthrawn (collateral damage)."
-        LeaveMessages[7]= ":arrow_backward: <@" + MemberID + "> was vaporised by <@295950633184526337> for not being a Cheddar Connoisseur"
-        LeaveMessages[8]= ":arrow_backward: <@" + MemberID + "> was exploded by <@565261827789815808> for using Cilit Bang instead."
+        LeaveMessages[7]= ":arrow_backward: <@" + MemberID + "> was vaporised by <@295950633184526337> for not being a Cheddar Connoisseur" // Lord Thompson
+        LeaveMessages[8]= ":arrow_backward: <@" + MemberID + "> was exploded by <@565261827789815808> for using Cilit Bang instead." // MrKleen
         LeaveMessages[9]= ":arrow_backward: ذهب الله لأنه <@" + MemberID +">."
         LeaveMessages[10]= ":arrow_backward: <@" + MemberID + "> had their Jordans creased."
         LeaveMessages[11]= ":arrow_backward: <@" + MemberID + "> received a Papa John's Pizza."
+        LeaveMessages[12]= ":arrow_backward: <@" + MemberID + "> was banished to the depths of Hell(Newcastle)."
+        LeaveMessages[13]= ":arrow_backward: <@" + MemberID + "> called Talyn Irish."
+        LeaveMessages[14]= ":arrow_backward: <@" + MemberID + "> smelled what The Rock was cooking."
 
-    var LeaveMessageRNG = Math.floor(Math.random() * 11);
+    var LeaveMessageRNG = Math.floor(Math.random() * 14);
     
     GenPubChannel.send(LeaveMessages[LeaveMessageRNG]);
 })
