@@ -264,7 +264,7 @@ client.on(Events.InteractionCreate, interaction => {
         + currentdate.getMinutes() + ":" 
         + currentdate.getSeconds();
 
-    console.log(`Command used: [${interaction.commandName}] by [${interaction.user.username}] at ` + datetime + `UTC+1`);
+    console.log(`Command used: [${interaction.commandName}] by [${interaction.user.username}] at ` + datetime + ` UTC`);
 })
 
 client.on(Events.InteractionCreate, async interaction => {
