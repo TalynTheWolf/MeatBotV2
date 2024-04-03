@@ -24,7 +24,7 @@ client.on("ready", () => {
 client.once('ready', () => {
     client.user.setStatus('online'),
     client.user.setPresence({
-        activities: [{name: "أنتم أيها الناس كلاب", type: ActivityType.Playing}] // Arabic for "You people are dogs"
+        activities: [{name: "Greg launching soon I swear!!!!!", type: ActivityType.Playing}] // Arabic for "You people are dogs"
     });
 });
 
@@ -179,8 +179,10 @@ client.on("guildMemberRemove", member => { // Detects a member leaving the serve
         LeaveMessages[13]= ":arrow_backward: <@" + MemberID + "> called Talyn Irish."
         LeaveMessages[14]= ":arrow_backward: <@" + MemberID + "> smelled what The Rock was cooking."
         LeaveMessages[15]= "arrow_backward: <@" + MemberID + "> was ran for their foams."
+        LeaveMessages[16]= ":arrow_backward: <@" + MemberID + "> didn't attack the D point."
+        LeaveMessages[17]= ":arrow_backward: <@" + MemberID + ">'s trench was found by a Ukranian FPV Drone."
 
-    var LeaveMessageRNG = Math.floor(Math.random() * 15);
+    var LeaveMessageRNG = Math.floor(Math.random() * 17);
     
     GenPubChannel.send(LeaveMessages[LeaveMessageRNG]);
 })
