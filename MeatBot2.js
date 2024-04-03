@@ -1,6 +1,6 @@
 const fs = require('node:fs');
 const path = require('node:path');
-const {Client, Collection, Events, GatewayIntentBits, ActivityType} = require('discord.js');
+const {Client, Collection, Events, GatewayIntentBits, ActivityType, AuditLogEvent} = require('discord.js');
 
 const client = new Client({
     intents: [
@@ -185,6 +185,33 @@ client.on("guildMemberRemove", member => { // Detects a member leaving the serve
     var LeaveMessageRNG = Math.floor(Math.random() * 17);
     
     GenPubChannel.send(LeaveMessages[LeaveMessageRNG]);
+})
+
+/////////////////////////////////
+///      AUDIT LOG SHIT       /// // Audit Log Shenanagins
+/////////////////////////////////
+
+// Kick Detection
+client.on(Events.GuildAuditLogEntryCreate, async auditLog => {
+    const { action, executorId, targetId, reason } = auditLog;
+    const ReportChannel = client.channels.cache.get("947646342191271966");
+
+    if(action !== AuditLogEvent.MemberKick) return;
+
+    ReportChannel.send(":exclamation: <@" + targetId + "> was kicked by <@" + executorId + ">. Reason: " + reason)
+})
+
+// Ban Detection
+client.on(Events.GuildAuditLogEntryCreate, async auditLog => {
+    const { action, executorId, targetId, reason } = auditLog;
+    const ReportChannel = client.channels.cache.get("947646342191271966");
+    const GenPubChannel = client.channels.cache.get("1136582618008277092");
+
+    if(action !== AuditLogEvent.MemberBanAdd) return;
+
+    ReportChannel.send(":exclamation: <@" + targetId + "> was banned by <@" + executorId + ">. Reason: " + reason)
+    GenPubChannel.send(":exclamation: <@" + targetId + "> got banned lmao")
+
 })
 
 /////////////////////////////////
