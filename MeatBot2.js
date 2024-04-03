@@ -210,7 +210,7 @@ client.on(Events.GuildAuditLogEntryCreate, async auditLog => {
     if(action !== AuditLogEvent.MemberBanAdd) return;
 
     ReportChannel.send(":exclamation: <@" + targetId + "> was banned by <@" + executorId + ">. Reason: " + reason)
-    GenPubChannel.send(":exclamation: <@" + targetId + "> got banned lmao")
+    GenPubChannel.send(":exclamation: <@" + targetId + "> was exploded Mitthrawn style (banned)")
 
 })
 
