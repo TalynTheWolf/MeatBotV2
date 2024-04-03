@@ -224,6 +224,16 @@ client.on(Events.GuildAuditLogEntryCreate, async auditLog => {
     ReportChannel.send(":exclamation: <@" + executorId + "> removed the ban for <@" + targetId + ">.")
 })
 
+// Bulk Delete Detection
+client.on(Events.GuildAuditLogEntryCreate, async auditLog => {
+    const { action } = auditLog;
+    const ReportChannel = client.channels.cache.get("947646342191271966");
+
+    if(action !== AuditLogEvent.MessageBulkDelete) return;
+
+    ReportChannel.send(":exclamation: Bulk Delete / Meatbot Purge Command usage detected. Check audit log and/or get Talyn or Cami to check the bot console if needed.")
+})
+
 /////////////////////////////////
 ///         COMMANDS          /// // Code to enable commands for the bot.
 /////////////////////////////////
@@ -245,7 +255,16 @@ for (const file of commandFiles) {
 
 client.on(Events.InteractionCreate, interaction => {
     if (!interaction.isChatInputCommand()) return;
-    console.log(`Command used: (${interaction.commandName})`);
+
+    var currentdate = new Date(); 
+    var datetime = "Date Time: " + currentdate.getDate() + "/"
+        + (currentdate.getMonth()+1)  + "/" 
+        + currentdate.getFullYear() + " @ "  
+        + currentdate.getHours() + ":"  
+        + currentdate.getMinutes() + ":" 
+        + currentdate.getSeconds();
+
+    console.log(`Command used: [${interaction.commandName}] by [${interaction.user.username}] at ` + datetime + `UTC+1`);
 })
 
 client.on(Events.InteractionCreate, async interaction => {
