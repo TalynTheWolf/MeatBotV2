@@ -214,6 +214,16 @@ client.on(Events.GuildAuditLogEntryCreate, async auditLog => {
 
 })
 
+// Ban Removal Detection
+client.on(Events.GuildAuditLogEntryCreate, async auditLog => {
+    const { action, executorId, targetId } = auditLog;
+    const ReportChannel = client.channels.cache.get("947646342191271966");
+    
+    if(action !== AuditLogEvent.MemberBanRemove) return;
+
+    ReportChannel.send(":exclamation: <@" + executorId + "> removed the ban for <@" + targetId + ">.")
+})
+
 /////////////////////////////////
 ///         COMMANDS          /// // Code to enable commands for the bot.
 /////////////////////////////////
