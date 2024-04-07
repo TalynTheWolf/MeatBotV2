@@ -24,7 +24,7 @@ client.on("ready", () => {
 client.once('ready', () => {
     client.user.setStatus('online'),
     client.user.setPresence({
-        activities: [{name: "Greg launching soon I swear!!!!!", type: ActivityType.Playing}] // Arabic for "You people are dogs"
+        activities: [{name: "GARG V IS REAL I SWEAR", type: ActivityType.Playing}]
     });
 });
 
@@ -253,6 +253,7 @@ for (const file of commandFiles) {
     }
 }
 
+// Adds console logging of command usage for any moderation needs
 client.on(Events.InteractionCreate, interaction => {
     if (!interaction.isChatInputCommand()) return;
 

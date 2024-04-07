@@ -14,6 +14,6 @@ module.exports = {
             const MeatText = interaction.options.getString('text')
             
             await interaction.reply({ content: 'Sending as MeatBot...', ephemeral: true });
-            await interaction.followUp(MeatText);
+            await interaction.channel.send(MeatText);
         }
 }
