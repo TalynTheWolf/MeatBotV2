@@ -24,7 +24,7 @@ client.on("ready", () => {
 client.once('ready', () => {
     client.user.setStatus('online'),
     client.user.setPresence({
-        activities: [{name: "GARG V IS REAL I SWEAR", type: ActivityType.Playing}]
+        activities: [{name: "you explode.", type: ActivityType.Watching}]
     });
 });
 
