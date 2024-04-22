@@ -178,7 +178,7 @@ client.on("guildMemberRemove", member => { // Detects a member leaving the serve
         LeaveMessages[12]= ":arrow_backward: <@" + MemberID + "> was banished to the depths of Hell(Newcastle)."
         LeaveMessages[13]= ":arrow_backward: <@" + MemberID + "> called Talyn Irish."
         LeaveMessages[14]= ":arrow_backward: <@" + MemberID + "> smelled what The Rock was cooking."
-        LeaveMessages[15]= "arrow_backward: <@" + MemberID + "> was ran for their foams."
+        LeaveMessages[15]= ":arrow_backward: <@" + MemberID + "> was ran for their foams."
         LeaveMessages[16]= ":arrow_backward: <@" + MemberID + "> didn't attack the D point."
         LeaveMessages[17]= ":arrow_backward: <@" + MemberID + ">'s trench was found by a Ukranian FPV Drone."
 
