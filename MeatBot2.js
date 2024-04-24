@@ -258,14 +258,14 @@ client.on(Events.InteractionCreate, interaction => {
     if (!interaction.isChatInputCommand()) return;
 
     var currentdate = new Date(); 
-    var datetime = "Date Time: " + currentdate.getDate() + "/"
+    var datetime = currentdate.getDate() + "/"
         + (currentdate.getMonth()+1)  + "/" 
         + currentdate.getFullYear() + " @ "  
         + currentdate.getHours() + ":"  
         + currentdate.getMinutes() + ":" 
         + currentdate.getSeconds();
 
-    console.log(`Command used: [${interaction.commandName}] by [${interaction.user.username}] at ` + datetime + ` UTC`);
+    console.log(`Command used: [${interaction.commandName}] by [${interaction.user.username}] on ` + datetime + ` UTC`);
 })
 
 client.on(Events.InteractionCreate, async interaction => {
