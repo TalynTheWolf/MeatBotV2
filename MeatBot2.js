@@ -24,7 +24,7 @@ client.on("ready", () => {
 client.once('ready', () => {
     client.user.setStatus('online'),
     client.user.setPresence({
-        activities: [{name: "you explode.", type: ActivityType.Watching}]
+        activities: [{name: "Talyn destroy my code", type: ActivityType.Watching}]
     });
 });
 
