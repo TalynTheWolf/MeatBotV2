@@ -124,7 +124,7 @@ client.on("guildMemberAdd", member => { // Detects a member joining the server a
     const MemberUsername = member.user.username
     const MemberID = member.user.id
     const MemberRole = member.guild.roles.cache.get("849230824863170571");
-    ReportChannel.send(":arrow_forward: <@" + MemberID + "> joined the server. Username is " + MemberUsername);
+    ReportChannel.send(":arrow_forward: <@" + MemberID + "> joined the server. Username is " + MemberUsername + ". User ID is " + MemberID);
     member.roles.add(MemberRole);
 
     // Sends a random funi welcome message to #general_public
@@ -232,6 +232,22 @@ client.on(Events.GuildAuditLogEntryCreate, async auditLog => {
     if(action !== AuditLogEvent.MessageBulkDelete) return;
 
     ReportChannel.send(":exclamation: Bulk Delete / Meatbot Purge Command usage detected. Check audit log and/or get Talyn or Cami to check the bot console if needed.")
+})
+
+/////////////////////////////////
+///       THE WATCHLIST       /// // Code to enable MeatBot to watch users the Staff team deem sussy (I know thats cringe, fuck off it's my bot.)
+/////////////////////////////////
+
+client.on("messageCreate", message => {
+    const ReportChannel = client.channels.cache.get("947646342191271966");
+    const MemberID = message.member.user.id
+    const MemberUsername = message.member.user.username
+    
+    if(message.member.roles.cache.has("1234309497934188680")){
+        ReportChannel.send(":exclamation: Watchlist user <@" + MemberID + "> has finally sent a message. Check it's not porn or smthn or I'll explode.")
+    } else {
+        return;
+    }
 })
 
 /////////////////////////////////
