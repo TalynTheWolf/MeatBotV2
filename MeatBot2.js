@@ -244,7 +244,7 @@ client.on("messageCreate", message => {
     const MemberUsername = message.member.user.username
     
     if(message.member.roles.cache.has("1234309497934188680")){
-        ReportChannel.send(":exclamation: Watchlist user <@" + MemberID + "> has finally sent a message. Check it's not porn or smthn or I'll explode.")
+        ReportChannel.send(":exclamation: <@&904794045749002260>, <@&1131005068112560198> :exclamation: Watchlist user <@" + MemberID + "> has finally sent a message. Check it's not porn or smthn or I'll explode.")
     } else {
         return;
     }
