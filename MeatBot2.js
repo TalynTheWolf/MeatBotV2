@@ -24,7 +24,7 @@ client.on("ready", () => {
 client.once('ready', () => {
     client.user.setStatus('online'),
     client.user.setPresence({
-        activities: [{name: "Talyn destroy my code", type: ActivityType.Watching}]
+        activities: [{name: "HOLY SHIT MITTHRAWN IS BACK!!!!!", type: ActivityType.Watching}]
     });
 });
 
@@ -144,8 +144,9 @@ client.on("guildMemberAdd", member => { // Detects a member joining the server a
         JoinMessages[10]= ":arrow_forward: Welcome to the modhouse, <@" + MemberID + ">. Please note, it is mandatory to send the staff team pizzas upon them being doxxed."
         JoinMessages[11]= ":arrow_forward: Welcome to Aryxandria, <@" + MemberID + ">."
         JoinMessages[12]= ":arrow_forward: <@" + MemberID + "> decided to upgrade from the KSH discord."
+        JoinMessages[13]= ":arrow_forward: Welcome, <@" + MemberID + ">, Glory to Anadrene!"
 
-    var JoinMessageRNG = Math.floor(Math.random() * 12);
+    var JoinMessageRNG = Math.floor(Math.random() * 13);
 
     GenPubChannel.send(JoinMessages[JoinMessageRNG]);
 
@@ -181,8 +182,9 @@ client.on("guildMemberRemove", member => { // Detects a member leaving the serve
         LeaveMessages[15]= ":arrow_backward: <@" + MemberID + "> was ran for their foams."
         LeaveMessages[16]= ":arrow_backward: <@" + MemberID + "> didn't attack the D point."
         LeaveMessages[17]= ":arrow_backward: <@" + MemberID + ">'s trench was found by a Ukranian FPV Drone."
+        LeaveMessages[18]= ":arrow_backward: <@" + MemberID + "> left for Dygamic... poor bastard."
 
-    var LeaveMessageRNG = Math.floor(Math.random() * 17);
+    var LeaveMessageRNG = Math.floor(Math.random() * 18);
     
     GenPubChannel.send(LeaveMessages[LeaveMessageRNG]);
 })
