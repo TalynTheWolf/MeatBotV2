@@ -24,7 +24,7 @@ client.on("ready", () => {
 client.once('ready', () => {
     client.user.setStatus('online'),
     client.user.setPresence({
-        activities: [{name: "HOLY SHIT MITTHRAWN IS BACK!!!!!", type: ActivityType.Watching}]
+        activities: [{name: "jorkin eet", type: ActivityType.Watching}]
     });
 });
 
@@ -176,7 +176,7 @@ client.on("guildMemberRemove", member => { // Detects a member leaving the serve
         LeaveMessages[9]= ":arrow_backward: ذهب الله لأنه <@" + MemberID +">."
         LeaveMessages[10]= ":arrow_backward: <@" + MemberID + "> had their Jordans creased."
         LeaveMessages[11]= ":arrow_backward: <@" + MemberID + "> received a Papa John's Pizza."
-        LeaveMessages[12]= ":arrow_backward: <@" + MemberID + "> was banished to the depths of Hell(Newcastle)."
+        LeaveMessages[12]= ":arrow_backward: <@" + MemberID + "> was banished to the depths of Hell (Newcastle)."
         LeaveMessages[13]= ":arrow_backward: <@" + MemberID + "> called Talyn Irish."
         LeaveMessages[14]= ":arrow_backward: <@" + MemberID + "> smelled what The Rock was cooking."
         LeaveMessages[15]= ":arrow_backward: <@" + MemberID + "> was ran for their foams."
