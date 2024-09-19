@@ -88,6 +88,8 @@ const PingResponses = []; // Array of responses for if the bot is pinged.
     PingResponses[8]= "I swear on Allah if you keep pinging me, I'll find and sic Agarthasnack on you."
     PingResponses[9]= "Acquire Employment Immediately!!!!!"
     PingResponses[10]= "You should've been swallowed rather than birthed..."
+    PingResponses[11]= "يجب أن تقتل نفسك الآن"
+    PingResponses[12]= "You build about as good as Alucard."
 
 client.on("messageCreate", message => { // When bot is pinged, send a randomised insult response in a reply ping.
     if(message.mentions.has(client.user)){
@@ -103,11 +105,11 @@ client.on("messageCreate", message => { // When bot is pinged, send a randomised
             message.member.timeout(5 * 60 * 1000, 'Timed out for pinging the bot while Lobotomised.');
             message.reply("This lobotomite got timed out lmao"); // Fuck them Lobotomites
         } else {
-            var ResponseRNG = Math.floor(Math.random() * 10);
+            var ResponseRNG = Math.floor(Math.random() * 12);
             message.reply(PingResponses[ResponseRNG]);
 
-            var TimeoutChance = Math.floor(Math.random() * 4); // One in Five chance of normal users being timed out when they ping the bot.
-            if(TimeoutChance == 2){
+            var TimeoutChance = Math.floor(Math.random() * 2); // One in Three chance of normal users being timed out when they ping the bot.
+            if(TimeoutChance == 1){
                 message.member.timeout(5 * 60 * 1000, 'Timed out for pinging the bot.');
                 message.reply("Dumb egg got timed out lol");
             }
@@ -145,8 +147,11 @@ client.on("guildMemberAdd", member => { // Detects a member joining the server a
         JoinMessages[11]= ":arrow_forward: Welcome to Aryxandria, <@" + MemberID + ">."
         JoinMessages[12]= ":arrow_forward: <@" + MemberID + "> decided to upgrade from the KSH discord."
         JoinMessages[13]= ":arrow_forward: Welcome, <@" + MemberID + ">, Glory to Anadrene!"
+        JoinMessages[14]= ":arrow_forward: <@" + MemberID + "> is back from invading Kursk."
+        JoinMessages[15]= ":arrow_forward: Welcome to the Modhouse, <@" + MemberID +">. Prepare to lose your sanity and/or your internal organs."
+        JoinMessages[16]= ":arrow_forward: wawa <@" + MemberID + "> wawa."
 
-    var JoinMessageRNG = Math.floor(Math.random() * 13);
+    var JoinMessageRNG = Math.floor(Math.random() * 16);
 
     GenPubChannel.send(JoinMessages[JoinMessageRNG]);
 
@@ -165,7 +170,7 @@ client.on("guildMemberRemove", member => { // Detects a member leaving the serve
     const GenPubChannel = member.guild.channels.cache.get("1136582618008277092");
     const LeaveMessages = [];
         LeaveMessages[0]= ":arrow_backward: <@" + MemberID + "> left the server. Probably a good decision tbh."
-        LeaveMessages[1]= ":arrow_backward: <@" + MemberID + "> couldn't handle the Modhouse Style. Later slugga..."
+        LeaveMessages[1]= ":arrow_backward: <@" + MemberID + "> couldn't handle the Modhouse Style. Later lynxa..."
         LeaveMessages[2]= ":arrow_backward: <@" + MemberID + "> was NOT built for these fields."
         LeaveMessages[3]= ":arrow_backward: <@" + MemberID + "> left the Modhouse. They probably went to Captain Jacks..."
         LeaveMessages[4]= ":arrow_backward: <@" + MemberID + "> left the Modhouse. Laugh at this user."
@@ -183,8 +188,11 @@ client.on("guildMemberRemove", member => { // Detects a member leaving the serve
         LeaveMessages[16]= ":arrow_backward: <@" + MemberID + "> didn't attack the D point."
         LeaveMessages[17]= ":arrow_backward: <@" + MemberID + ">'s trench was found by a Ukranian FPV Drone."
         LeaveMessages[18]= ":arrow_backward: <@" + MemberID + "> left for Dygamic... poor bastard."
+        LeaveMessages[19]= ":arrow_backward: <@" + MemberID + "> got tired of waiting for Garg Industries..."
+        LeaveMessages[20]= ":arrow_backward: <@" + MemberID + "> left to invade Kursk."
+        LeaveMessages[21]= ":arrow_backward: <@" + MemberID + "> did not standby for Titanfall."
 
-    var LeaveMessageRNG = Math.floor(Math.random() * 18);
+    var LeaveMessageRNG = Math.floor(Math.random() * 21);
     
     GenPubChannel.send(LeaveMessages[LeaveMessageRNG]);
 })
