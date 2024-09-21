@@ -62,8 +62,8 @@ const MeatPuns = []; // Array of shitty ChatGPT meat puns from Camina
 client.on("messageCreate", message => { // When lockered person sends msg in Meatlocker, will send a meat image and meat pun into the locker, reply @'ing them
     if(message.channel.id === "1047425498734678097"){
         if(message.member.roles.cache.has("876619639323525190")){
-            var MeatImgRNG = Math.floor(Math.random() * 12);
-            var MeatPunRNG = Math.floor(Math.random() * 7);
+            var MeatImgRNG = Math.floor(Math.random() * MeatImages.length);
+            var MeatPunRNG = Math.floor(Math.random() * MeatPuns.length);
             //console.log(MeatImgRNG) // Debug line
             //console.log(MeatPunRNG) // Debug line
             message.reply(MeatImages[MeatImgRNG]);
@@ -105,7 +105,7 @@ client.on("messageCreate", message => { // When bot is pinged, send a randomised
             message.member.timeout(5 * 60 * 1000, 'Timed out for pinging the bot while Lobotomised.');
             message.reply("This lobotomite got timed out lmao"); // Fuck them Lobotomites
         } else {
-            var ResponseRNG = Math.floor(Math.random() * 12);
+            var ResponseRNG = Math.floor(Math.random() * PingResponses.length);
             message.reply(PingResponses[ResponseRNG]);
 
             var TimeoutChance = Math.floor(Math.random() * 2); // One in Three chance of normal users being timed out when they ping the bot.
@@ -151,7 +151,7 @@ client.on("guildMemberAdd", member => { // Detects a member joining the server a
         JoinMessages[15]= ":arrow_forward: Welcome to the Modhouse, <@" + MemberID +">. Prepare to lose your sanity and/or your internal organs."
         JoinMessages[16]= ":arrow_forward: wawa <@" + MemberID + "> wawa."
 
-    var JoinMessageRNG = Math.floor(Math.random() * 16);
+    var JoinMessageRNG = Math.floor(Math.random() * JoinMessages.length);
 
     GenPubChannel.send(JoinMessages[JoinMessageRNG]);
 
@@ -192,7 +192,7 @@ client.on("guildMemberRemove", member => { // Detects a member leaving the serve
         LeaveMessages[20]= ":arrow_backward: <@" + MemberID + "> left to invade Kursk."
         LeaveMessages[21]= ":arrow_backward: <@" + MemberID + "> did not standby for Titanfall."
 
-    var LeaveMessageRNG = Math.floor(Math.random() * 21);
+    var LeaveMessageRNG = Math.floor(Math.random() * LeaveMessages.length);
     
     GenPubChannel.send(LeaveMessages[LeaveMessageRNG]);
 })

@@ -11,7 +11,7 @@ module.exports = {
             SlotsImages[1]= "https://media.discordapp.net/attachments/1028474477333459025/1286891131992408145/modhouseslots_var2.gif?ex=66ef8e43&is=66ee3cc3&hm=84b5803125968196d163dca37bdc3b8335465d5f82ad487a389dfb340135f6f5&=" // Misc 2
             SlotsImages[2]= "https://media.discordapp.net/attachments/1028474477333459025/1286893138908287070/modhouseslots_var3.gif?ex=66ef9021&is=66ee3ea1&hm=7b3f298477f65e911d0a843a9ad8292d3aa19093ac2713244a61c22150c0b68f&=" // Misc 3
 
-        var SlotsImagesRNG = Math.floor(Math.random() * 2);
+        var SlotsImagesRNG = Math.floor(Math.random() * SlotsImages.length);
 
         await interaction.reply({ content: 'Spinning the wheel...', ephemeral: false });
         await interaction.channel.send(SlotsImages[SlotsImagesRNG]);
