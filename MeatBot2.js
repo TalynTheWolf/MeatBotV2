@@ -24,7 +24,7 @@ client.on("ready", () => {
 client.once('ready', () => {
     client.user.setStatus('online'),
     client.user.setPresence({
-        activities: [{name: "jorkin eet", type: ActivityType.Watching}]
+        activities: [{name: "Garg V Closed Beta", type: ActivityType.Watching}]
     });
 });
 
@@ -178,7 +178,7 @@ client.on("guildMemberRemove", member => { // Detects a member leaving the serve
         LeaveMessages[6]= ":arrow_backward: <@" + MemberID + "> was obliterated by Mitthrawn (collateral damage)."
         LeaveMessages[7]= ":arrow_backward: <@" + MemberID + "> was vaporised by Lord Thompson for not being a Cheddar Connoisseur"
         LeaveMessages[8]= ":arrow_backward: <@" + MemberID + "> was exploded by MrKleen for using Cilit Bang instead."
-        LeaveMessages[9]= ":arrow_backward: ذهب الله لأنه <@" + MemberID +">."
+        LeaveMessages[9]= ":arrow_backward: ذهب الله لأنه <@" + MemberID + ">."
         LeaveMessages[10]= ":arrow_backward: <@" + MemberID + "> had their Jordans creased."
         LeaveMessages[11]= ":arrow_backward: <@" + MemberID + "> received a Papa John's Pizza."
         LeaveMessages[12]= ":arrow_backward: <@" + MemberID + "> was banished to the depths of Hell (Newcastle)."
