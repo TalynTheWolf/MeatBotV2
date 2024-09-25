@@ -1,6 +1,6 @@
 const fs = require('node:fs');
 const path = require('node:path');
-const {Client, Collection, Events, GatewayIntentBits, ActivityType, AuditLogEvent} = require('discord.js');
+const {Client, Collection, Events, GatewayIntentBits, ActivityType, AuditLogEvent, AutoModerationActionExecution, AutoModerationRule} = require('discord.js');
 
 const client = new Client({
     intents: [
@@ -9,6 +9,7 @@ const client = new Client({
         GatewayIntentBits.MessageContent,
         GatewayIntentBits.GuildMembers,
         GatewayIntentBits.GuildModeration,
+        GatewayIntentBits.AutoModerationExecution,
     ]
 });
 
@@ -100,6 +101,8 @@ client.on("messageCreate", message => { // When bot is pinged, send a randomised
         }else if(message.member.roles.cache.has("904794045749002260")){
             return;
         }else if(message.member.roles.cache.has("1131005068112560198")){
+            return;
+        }else if(message.member.roles.cache.has("1119413559865122930")){
             return;
         }else if(message.member.roles.cache.has("1003685931754209490")){ // If a user pinging the bot has the "Lobotomized" role, the bot will automatically time them out lol
             message.member.timeout(5 * 60 * 1000, 'Timed out for pinging the bot while Lobotomised.');
@@ -257,6 +260,21 @@ client.on("messageCreate", message => {
         ReportChannel.send(":exclamation: <@&904794045749002260>, <@&1131005068112560198> :exclamation: Watchlist user <@" + MemberID + "> has finally sent a message. Check it's not porn or smthn or I'll explode.")
     } else {
         return;
+    }
+})
+
+/////////////////////////////////
+///          AUTOMOD          /// // Handling automatic banning of users that use extreme slurs. Mainly made possible by Warecrafter, who is much better than me at this lol.
+/////////////////////////////////
+
+client.on(Events.AutoModerationActionExecution, guild => {
+    const RuleID = guild.ruleId
+    const ReportChannel = client.channels.cache.get("947646342191271966");
+    const MemberID = guild.member.user.id
+
+    if(RuleID == ("1001533006210678865")){
+        ReportChannel.send(":exclamation: <@" + MemberID + "> triggered the Gamer Moment Filter rule, Executing Order 66.")
+        guild.member.ban({ targetId: MemberID, reason: 'Triggered Gamer Moment Filter.'})
     }
 })
 
