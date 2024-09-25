@@ -275,6 +275,7 @@ client.on(Events.AutoModerationActionExecution, guild => {
     if(RuleID == ("1001533006210678865")){
         ReportChannel.send(":exclamation: <@" + MemberID + "> triggered the Gamer Moment Filter rule, Executing Order 66.")
         guild.member.ban({ targetId: MemberID, reason: 'Triggered Gamer Moment Filter.'})
+        client.users.send(MemberID, "This is an automated message, the bot will NOT respond to you. You've been banned from the Aryx Modhouse for tripping the Gamer Moment Filter. This means you've used some slur we have deemed as unacceptable. If you believe this ban was mistakenly given to you, please contact Camina or Talyn.")
     }
 })
 
