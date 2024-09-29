@@ -2,7 +2,7 @@ const { SlashCommandBuilder, PermissionFlagsBits } = require('discord.js');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('modhouseslots')
-        .setDescription('Spin the wheel and get a random retarded slot machine gif'),
+        .setDescription('Spin the wheel and get a random stupid slot machine gif'),
     async execute(interaction) {
 
         const SlotsImages = []; // Array for Modhouse Slot Gifs
