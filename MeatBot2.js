@@ -223,9 +223,7 @@ client.on(Events.GuildAuditLogEntryCreate, async auditLog => {
     if(action !== AuditLogEvent.MemberBanAdd) return;
 
     ReportChannel.send(":exclamation: <@" + targetId + "> was banned by <@" + executorId + ">. Reason: " + reason)
-    GenPubChannel.send(":exclamation: <@" + targetId + "> was exploded Mitthrawn style (banned)")
-    client.users.send(targetId, "***///AUTOMATED MESSAGE///***")
-    client.users.send(targetId, "You have been banned from the Aryx Modhouse. Reason given: " + reason + ". Please contact <@334086525853892608> or <@123858285613809665> if you believe this to be a mistake.")
+    GenPubChannel.send(":exclamation: <@" + targetId + "> was banned from the server.")
 })
 
 // Ban Removal Detection
@@ -276,7 +274,7 @@ client.on(Events.AutoModerationActionExecution, guild => {
     if(RuleID == ("1001533006210678865")){
         ReportChannel.send(":exclamation: <@" + MemberID + "> triggered the Gamer Moment Filter rule, Executing Order 66.")
         client.users.send(MemberID, "***///AUTOMATED MESSAGE///***")
-        client.users.send(MemberID, "You've been banned from the Aryx Modhouse for tripping the Gamer Moment Filter. This means you've used a slur we have deemed as unacceptable. If you believe this ban was mistakenly given to you, please contact <@334086525853892608> or <@123858285613809665>.")
+        client.users.send(MemberID, "You've been automatically banned from the Aryx Modhouse for tripping the Gamer Moment Filter. This means you've used an extreme slur that we don't allow. If you believe this ban was mistaken, please contact <@334086525853892608> or <@123858285613809665>.")
         guild.member.ban({ targetId: MemberID, reason: 'Triggered Gamer Moment Filter.'})
     }else{
         return;
